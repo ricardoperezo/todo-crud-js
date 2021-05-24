@@ -27,7 +27,7 @@ export default class Model {
   }
 
   getTodos() {
-    return this.todos;
+    return this.todos.map((todo) => ({ ...todo })); // "clone" every todo item of todos list
   }
 
   findTodo(id) {
@@ -39,12 +39,12 @@ export default class Model {
     const todo = this.todos[index];
     todo.completed = !todo.completed;
     this.save();
-}
+  }
 
   editTodo(id, values) {
-      const index = this.findTodo(id);
-      Object.assign(this.todos[index], values);
-      this.save();
+    const index = this.findTodo(id);
+    Object.assign(this.todos[index], values);
+    this.save();
   }
 
   addTodo(title, description) {
