@@ -1,7 +1,5 @@
 // Make sure DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
-  const title = document.getElementById("title");
-  const description = document.getElementById("description");
   const alert = document.getElementById("alert");
   const btn = document.getElementById("add");
   const table = document.getElementById("table");
