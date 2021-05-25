@@ -1,0 +1,46 @@
+
+.btn-instagram-circle {
+  background-color: #ac2bac;
+  width: 42px;
+  height: 42px;
+  padding: 3px 1px;
+  font-size: 25px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+.btn-github-circle {
+  background-color: #333333;
+  width: 42px;
+  height: 42px;
+  padding: 3px 1px;
+  font-size: 25px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+.btn-twitter-circle {
+  background-color: #55acee;
+  width: 42px;
+  height: 42px;
+  padding: 3px 1px;
+  font-size: 25px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+.btn-linkedin-circle {
+  background-color: #0082ca;
+  width: 42px;
+  height: 42px;
+  padding: 3px 1px;
+  font-size: 25px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+hr {
+  border-top: 1px solid gray;
+  width: 95%;
+  margin-top: 5rem;
+}
