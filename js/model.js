@@ -7,7 +7,7 @@ export default class Model {
         {
           id: 0,
           title: "Test",
-          description: "This is an description",
+          description: "This is a description",
           completed: false,
         },
       ];
