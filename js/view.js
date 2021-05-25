@@ -21,13 +21,6 @@ export default class View {
     this.model = model;
   }
 
-  render() {
-    const todos = this.model.getTodos();
-    todos.forEach((todo) => {
-      this.createRow(todo);
-    });
-  }
-
   filter(filters) {
     const { type, words } = filters; // destructuring
     const [, ...rows] = this.table.getElementsByTagName("tr"); // deleting the first element 'tr' of rows (the header)
@@ -54,6 +47,10 @@ export default class View {
         row.classList.remove("d-none");
       }
     }
+  } 
+
+  toggleCompleted(id) {
+    this.model.toggleCompleted(id);
   }
 
   addTodo(title, description) {
@@ -61,10 +58,13 @@ export default class View {
     this.createRow(todo);
   }
 
-  toggleCompleted(id) {
-    this.model.toggleCompleted(id);
+  render() {
+    const todos = this.model.getTodos();
+    todos.forEach((todo) => {
+      this.createRow(todo);
+    });
   }
-
+  
   editTodo(id, values) {
     this.model.editTodo(id, values);
     const row = document.getElementById(id);
@@ -79,25 +79,27 @@ export default class View {
   }
 
   createRow(todo) {
-    const row = table.insertRow();
+    const row = table.children[1].insertRow(); // Pointing to tbody tag
     row.setAttribute("id", todo.id);
-    row.innerHTML = `
-            <td>${todo.title}</td>
-            <td>${todo.description}</td>
-            <td class="text-center">
-            
-            </td>
-            <td class="text-right">
-                
-            </td>
+    row.innerHTML = `         
+          <td>${todo.title}</th>
+          <td>${todo.description}</td>
+          <td class="text-center">
+          
+          </td>
+          <td class="text-right">
+          
+          </td>          
         `;
 
+    // checkbox input DOM element
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = todo.completed;
     checkbox.onclick = () => this.toggleCompleted(todo.id);
     row.children[2].appendChild(checkbox);
 
+    // edit button DOM element
     const editBtn = document.createElement("button");
     editBtn.classList.add("btn", "btn-primary", "mb-1");
     editBtn.innerHTML = '<i class="fa fa-pencil"></i>';
@@ -112,6 +114,7 @@ export default class View {
       });
     row.children[3].appendChild(editBtn);
 
+    // remove button DOM element
     const removeBtn = document.createElement("button");
     removeBtn.classList.add("btn", "btn-danger", "mb-1", "ml-1");
     removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
