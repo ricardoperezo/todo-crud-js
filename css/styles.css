@@ -1,4 +1,3 @@
-
 .btn-instagram-circle {
   background-color: #ac2bac;
   width: 42px;
@@ -43,4 +42,11 @@ hr {
   border-top: 1px solid gray;
   width: 95%;
   margin-top: 5rem;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: inherit;
+  border-top: 1px solid #444;
 }
